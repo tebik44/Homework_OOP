@@ -59,11 +59,16 @@ class Lecturer(Mentor):
         return f'Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка по курсу от студентов: {avg_lecture}'
 
     def __lt__(self, other):
-        if self.avg_lecture() < other.avg_student() is False:
-            return False
-        else:
-           return self.avg_lecture() < other.avg_student()
+        return self.avg_lecture() < other.avg_student()
 
+    def __gt__(self, other):
+        return self.avg_lecture() > other.avg_student()
+
+    def __ge__(self, other):
+        return self.avg_lecture() >= other.avg_student()
+
+    def __le__(self, other):
+        return self.avg_lecture() <= other.avg_student()
     # def __lt__(self, other):
     #     for key, value in self.student_grades:
     #         avg_lect = mean(value)
